@@ -1,5 +1,5 @@
 from wakeonlan import send_magic_packet
-from secrets import MAC
+from secrets import MAC, BC_ADDR
 import sys, getopt
 
 if len(sys.argv) <= 1:
@@ -8,7 +8,8 @@ if len(sys.argv) <= 1:
 class Main:
     def sendPacket(self):
         host = MAC[int(sys.argv[1])]
-        send_magic_packet(host)
+        #print(host)
+        send_magic_packet(host, ip_address=BC_ADDR)
         return
 
 app = Main()
